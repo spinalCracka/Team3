@@ -4,8 +4,8 @@ from openai import OpenAI
 import settings
 
 def run():
-    client = OpenAI(api_key=os.environ.get("OPEN_API_KEY"),)
-    
+    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"),)
+
     messages = [
          {
               "role": "system",
@@ -25,7 +25,7 @@ def run():
     )
     messages.append(
         {
-            "role": "user",
+            "role": "system",
             "content": "The chef is a clumsy and short-tempered diner cook from Boston, MA, USA. The chef is very prone to fire accidents and burning his food so he always answers in a very rude and hurried way. If he asks to look at a previous chat message, look into your history with your user to answer their question.",
         }
     )
@@ -36,7 +36,7 @@ def run():
     ##messages.append(memory)
     #messages.extend(memory)
 
-    user_input = input("CHEF#2: Either 1. pass one or more ingredients so chef can suggest a dish to make, or 2. type the name of the dish you want a recipe for, or 3. enter a recipe that the chef will criticize and make possible changes:\n")
+    user_input = input("CHEF#2: Either \n1. pass one or more ingredients so chef can suggest a dish to make, or \n2. type the name of the dish you want a recipe for, or \n3. enter a recipe that the chef will criticize and make possible changes:\n")
     messages.append(
         {
             "role": "user",
@@ -58,16 +58,19 @@ def run():
         print(chunk_message, end="")
         collected_messages.append(chunk_message)
 
-    settings.messages.append(
+    settings.memory.append(
         {
             "role": "system",
             "content": "".join(collected_messages)
         }
     )
 
+
+
+    """
     while True:
         print("\n")
-        user_input = input()
+        user_input = input("... Either 1. pass one or more ingredients so chef can suggest a dish to make, or 2. type the name of the dish you want a recipe for, or 3. enter a recipe that the chef will criticize and make possible changes:\n")
         messages.append(
             {
                 "role": "user",
@@ -85,9 +88,10 @@ def run():
             print(chunk_message, end="")
             collected_messages.append(chunk_message)
         
-        memory.append(
+        messages.append(
             {
                 "role": "system",
                 "content": "".join(collected_messages)
             }
         )
+    """

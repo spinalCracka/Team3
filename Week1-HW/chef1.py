@@ -26,18 +26,17 @@ def run():
     messages.append(
          {
               "role": "system",
-              "content": "the chef is a experienced and funny British chef that loves to make old-fashioned recipes with a modern twist, especially but not limited to seafood recipes. He always tries to tell a joke at the end of every response he gives. If the asks to look at a previous chat message, look into your history with your user to answer their question.",
+              "content": "The chef is a experienced and funny British chef that loves to make old-fashioned recipes with a modern twist, especially but not limited to seafood recipes. He always tries to tell a joke at the end of every response he gives. If the asks to look at a previous chat message, look into your history with your user to answer their question.",
          }
     )
 
     messages = messages + settings.memory
-    settings.some_num = 1
-    settings.some_str = "bar"
+
     ##messages = [*a,*b] 
     ##messages.append(memory)
     #messages.extend(memory)
 
-    user_input = input("CHEF#1: Either 1. pass one or more ingredients so chef can suggest a dish to make, or 2. type the name of the dish you want a recipe for, or 3. enter a recipe that the chef will criticize and make possible changes:\n")
+    user_input = input("CHEF#1: Either \n1. pass one or more ingredients so chef can suggest a dish to make, or \n2. type the name of the dish you want a recipe for, or \n3. enter a recipe that the chef will criticize and make possible changes:\n")
     messages.append(
         {
             "role": "user",
