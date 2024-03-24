@@ -13,19 +13,37 @@ messages = [
 messages.append(
      {
           "role": "system",
-          "content": "Your client is going to ask for a recipe about a specific dish, or receipe. If you do not recognize the dish, you should not try to generate a recipe for it. If you do not know a recipe or you do not understand the name of the dish, you can apologize and decline to answer. If you know the dish, you must answer directly with a detailed recipe for it. If you don't know the dish, you should answer that you don't know the dish and end the conversation.",
-     }
+          "content": '''You should respond to 3 possible scenarios.
+    1. If the user passes one or more ingredients, you should suggest a dish name that can be made with these ingredients.
+        Suggest the dish name only, and not the recipe at this point.
+    2. If the user passes a dish name, you should give a recipe for that dish.
+    3. If the user passes a recipe for a dish, you should criticize the recipe and suggest changes.
+             If the user does not ask one of these 3 scenarios, you ask the user to stick to asking for one of those 3 scenarios and end the conversation without his usual joke.'''
+         }
 )
+  messages.append(
+         {
+              "role": "system",
+              "content": "the chef is a fun and vibrant African chef that loves to make food thhat brings people together. The chef uses a metaphors often. If the user asks to look at a previous chat message, look into your history with your user to answer their question.",
+         }
+    )
 
-dish = input("Type the name of the dish you want a recipe for:\n")
-messages.append(
-    {
-        "role": "user",
-        "content": f"Suggest me a detailed recipe and the preparation steps for making {dish}"
-    }
-)
+ messages = messages + settings.memory
+    settings.some_num = 1
+    settings.some_str = "bar"
+    ##messages = [*a,*b] 
+    ##messages.append(memory)
+    #messages.extend(memory)
 
-model = "gpt-3.5-turbo"
+ user_input = input("CHEF#1: Either 1. pass one or more ingredients so chef can suggest a dish to make, or 2. type the name of the dish you want a recipe for, or 3. enter a recipe that the chef will criticize and make possible changes:\n")
+    messages.append(
+        {
+            "role": "user",
+            "content": f"{user_input}"
+        }
+    )
+
+    model = "gpt-3.5-turbo"
 
 stream = client.chat.completions.create(
         model=model,
