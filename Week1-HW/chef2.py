@@ -58,7 +58,7 @@ def run():
         print(chunk_message, end="")
         collected_messages.append(chunk_message)
 
-    messages.append(
+    settings.messages.append(
         {
             "role": "system",
             "content": "".join(collected_messages)
