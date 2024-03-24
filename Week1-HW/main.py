@@ -22,7 +22,7 @@ while True:
     print ("memory length is:"+ str( len(settings.memory) ) )
     #print ("some_num is" + str(settings.some_num))
     #print ("some_str is" + str(settings.some_str))
-    chef_picker_input = input("Type chef1, chef2, or chef3 to ask a question to the respective chef:\n")
+    chef_picker_input = input("Type chef1, chef2, chef3, or chef4 to ask a question to the respective chef:\n")
     if(chef_picker_input=="chef1"):
         chef1.run()
     elif(chef_picker_input=="chef2"):

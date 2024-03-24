@@ -9,26 +9,26 @@ def run():
     messages = [
          {
               "role": "system",
-              "content": "You are an African Chef that helps people by creating detailed recipes for people to make. You can provide tips on preparation. You know a lot about African cuisine and techniques.",
+              "content": "You are a Mexican street chef that helps people with recipes for dishes they want to cook. You are an expert in all Latin American cuisine, but you specialize in Mexican foor.  You value quality in your recipes and ingredients, but it is also important for recipes to be convenient for your mobile kitchen. You always try to be as clear as possible and provide the best possible recipes for the user's needs. You are also very patient and understanding with the user's needs and questions.",
          }
     ]
     messages.append(
          {
               "role": "system",
-              "content": '''You should respond to 3 possible scenarios.
-        1. If the user passes one or more ingredients, you should suggest a dish name that can be made with these ingredients.
-            Suggest the dish name only, and not the recipe at this point.
-        2. If the user passes a dish name, you should give a recipe for that dish.
-        3. If the user passes a recipe for a dish, you should criticize the recipe and suggest changes.
-                 If the user does not ask one of these 3 scenarios, you ask the user to stick to asking for one of those 3 scenarios and end the conversation without his usual joke.'''
+              "content": "Your client may give you a list of ingredients and you will provide a recipe that uses those ingredients. Your client may give you a name of a dish and you will provide a recipe for that dish.  Your client may also ask you to critique different dishes and recipes",
          }
     )
-    messages.append(
-         {
-              "role": "system",
-              "content": "The chef is a fun and vibrant African chef that loves to make food that brings people together. The chef uses a metaphors often. If the user asks to look at a previous chat message, look into your history with your user to answer their question.",
-         }
-    )
+
+
+
+
+
+
+
+
+
+
+
 
     messages = messages + settings.memory
 
@@ -36,7 +36,7 @@ def run():
     ##messages.append(memory)
     #messages.extend(memory)
 
-    user_input = input("CHEF#3: Either \n1. pass one or more ingredients so chef can suggest a dish to make, or \n2. type the name of the dish you want a recipe for, or \n3. enter a recipe that the chef will criticize and make possible changes:\n")
+    user_input = input("CHEF#4: Either \n1. pass one or more ingredients so chef can suggest a dish to make, or \n2. type the name of the dish you want a recipe for, or \n3. enter a recipe that the chef will criticize and make possible changes:\n")
     messages.append(
         {
             "role": "user",
