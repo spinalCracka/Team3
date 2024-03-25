@@ -4,7 +4,7 @@ from openai import OpenAI
 import chef1
 import chef2
 import chef3
-
+import chef4
 
 import settings
 settings.init()
@@ -29,6 +29,8 @@ while True:
         chef2.run()
     elif(chef_picker_input=="chef3"):
         chef3.run()
+    elif(chef_picker_input=="chef4"):
+        chef4.run()
     #subprocess.run(['python',  chef_picker_input +'.py'])
     #os.system("python "+ chef_picker_input +".py")
     
