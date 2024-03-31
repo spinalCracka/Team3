@@ -4,6 +4,8 @@ import { OpenAIStream, StreamingTextResponse } from 'ai';
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
+	//for local model testing only, remove if want to test via cloud api:
+	baseURL: `http://127.0.0.1:5000/v1`,
 });
 
 // IMPORTANT! Set the runtime to edge
